@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import BrandMark from "@/components/layout/BrandMark";
 import Container from "@/components/ui/Container";
 import { IconClose, IconMenu } from "@/components/ui/icons";
 import { NAV_LINKS, SITE_NAME } from "@/lib/config";
@@ -23,7 +22,6 @@ export default function Navbar() {
     <header className="sticky top-0 z-40 border-b border-line bg-ivory/95 backdrop-blur print:hidden">
       <Container className="flex h-16 items-center justify-between gap-3">
         <a href="#home" className="flex min-w-0 items-center gap-3" onClick={() => setOpen(false)}>
-          <BrandMark />
           <span className="text-base font-bold leading-tight text-brand sm:text-lg">{SITE_NAME}</span>
         </a>
 

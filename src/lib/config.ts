@@ -18,6 +18,12 @@ export const DEFAULT_VIEW: { year: number; month: number } = { year: 2026, month
 /** First day of the week in the grid: 0 = Sunday, 1 = Monday, 6 = Saturday. */
 export const WEEK_STARTS_ON: 0 | 1 | 6 = 0;
 
+/** Official contact links. Change them here and the contact section and footer both update. */
+export const CONTACT_LINKS = [
+  { label: "যোগাযোগ ওয়েবসাইট", display: "jogajogbd.org", href: "https://jogajogbd.org/" },
+  { label: "ফেসবুক পেজ", display: "facebook.com/DSTBP", href: "https://www.facebook.com/DSTBP" },
+] as const;
+
 export const NAV_LINKS = [
   { label: "হোম", href: "#home" },
   { label: "ক্যালেন্ডার", href: "#calendar" },

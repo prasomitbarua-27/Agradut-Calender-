@@ -1,6 +1,5 @@
-import BrandMark from "@/components/layout/BrandMark";
 import Container from "@/components/ui/Container";
-import { NAV_LINKS, SITE_DESCRIPTION, SITE_NAME } from "@/lib/config";
+import { CONTACT_LINKS, NAV_LINKS, SITE_DESCRIPTION, SITE_NAME } from "@/lib/config";
 import { toBn } from "@/lib/format";
 
 export default function Footer() {
@@ -8,10 +7,7 @@ export default function Footer() {
     <footer className="bg-ink text-ivory print:hidden">
       <Container className="grid gap-10 py-12 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
-          <div className="flex items-center gap-3">
-            <BrandMark />
-            <p className="text-lg font-bold">{SITE_NAME}</p>
-          </div>
+          <p className="text-lg font-bold">{SITE_NAME}</p>
           <p className="mt-4 max-w-md text-ivory/80">{SITE_DESCRIPTION}</p>
         </div>
 
@@ -30,7 +26,21 @@ export default function Footer() {
 
         <div>
           <p className="font-semibold text-gold-light">যোগাযোগ</p>
-          <p className="mt-3 text-ivory/80">যোগাযোগের তথ্য শীঘ্রই যুক্ত করা হবে।</p>
+          <ul className="mt-3 space-y-1">
+            {CONTACT_LINKS.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-11 items-center break-all text-ivory/90 underline-offset-4 hover:underline"
+                >
+                  {link.label}
+                  <span className="sr-only"> (নতুন ট্যাবে খুলবে)</span>
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </Container>
 
