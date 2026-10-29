@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+/*
+  Design tokens. Every colour on the site comes from here.
+  Example: `bg-brand`, `text-muted`, `border-line` in components.
+*/
+@theme {
+  --color-brand: #6b1d2a; /* deep maroon: main brand colour */
+  --color-brand-deep: #4a1320; /* darker maroon: hover */
+  --color-night: #0b1626; /* deep navy that matches the hero background picture */
+  --color-brand-tint: #f5e9eb; /* very light maroon: soft backgrounds */
+  --color-gold: #b8893b; /* warm gold: decoration and borders only */
+  --color-gold-deep: #8a6420; /* readable gold for small text on ivory */
+  --color-gold-light: #e2c27d; /* gold for use on dark maroon */
+  --color-gold-tint: #f6ecd6;
+  --color-ivory: #fbf7ef; /* page background */
+  --color-sand: #f3ecdf; /* alternate section background */
+  --color-ink: #2a2622; /* main text */
+  --color-muted: #5e5750; /* secondary text */
+  --color-line: #e2d8c8; /* borders */
+  --color-leaf: #4f6b4a; /* muted green, used sparingly */
+  --color-leaf-tint: #e8efe5;
+
+  --radius-card: 6px;
+  --radius-sm: 4px;
+
+  --shadow-soft: 0 1px 2px rgb(42 38 34 / 0.06), 0 4px 14px rgb(42 38 34 / 0.05);
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-ivory);
+  color: var(--color-ink);
+  font-family: var(--font-hind), "Noto Sans Bengali", system-ui, sans-serif;
+  font-size: 1.0625rem; /* 17px: Bengali letters need a little extra size */
+  line-height: 1.7;
+}
+
+/* Smooth scrolling only for people who have not asked for less motion. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* A clear keyboard focus ring everywhere. */
+:focus-visible {
+  outline: 3px solid var(--color-gold-deep);
+  outline-offset: 2px;
+}
+
+/* Keep anchor targets from hiding under the sticky navbar. */
+[id] {
+  scroll-margin-top: 5rem;
+}
+
+/* Stop the page behind an open dialog from scrolling. */
+body:has(dialog[open]) {
+  overflow: hidden;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 100;
+  background: var(--color-brand);
+  color: var(--color-ivory);
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius-card);
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+@media print {
+  body {
+    background: white;
+    font-size: 12pt;
+  }
+}
